@@ -1,0 +1,26 @@
+1. php artisan make:migration create_articles_table
+   - Bu komut, `articles` adında bir tablo oluşturmak için bir migration dosyası oluşturur. Bu dosya, veritabanı şemasındaki değişiklikleri tanımlamak için kullanılır.
+
+2. php artisan make:migration create_articles_table --create=burak
+   - Bu komut, `burak` adında bir tablo oluşturmak için bir migration dosyası oluşturur. `--create` seçeneği, belirtilen tabloyu otomatik olarak oluşturacak şekilde migration dosyasını ayarlar.
+
+3. php artisan migrate
+   - Bu komut, daha önce oluşturulmuş migration dosyalarını çalıştırarak veritabanındaki değişiklikleri uygular. Yani, tanımlı olan tabloları oluşturur veya mevcut tabloları günceller.
+
+4. php artisan migrate:rollback
+   - Bu komut, en son çalıştırılan migration'lari geri alır. Migration'larin önceki durumuna dönmek için kullanılır.
+
+5. php artisan migrate:rollback --step=2
+   - Bu komut, son iki migration'ı geri alır. `--step` seçeneği, kaç adım geri alınacağını belirtir.
+
+6. php artisan migrate:rollback --batch=2
+   - Bu komut, belirli bir işlem kümesindeki migration'ları geri alır. `--batch` seçeneği, belirli bir işlem grubundaki migration'ları geri almak için kullanılır.
+
+7. php artisan migrate:reset
+   - Bu komut, tüm migration'ları  geri alır ve veritabanını migration'ların başlamadan önceki durumuna döndürür. Tüm veritabanı değişikliklerini geri alır.
+
+8. php artisan migrate:refresh
+   - Bu komut, veritabanındaki tüm migration'ları  sıfırlar ve tekrar uygular. Bu, migration'ları  geri alıp tekrar uygulamak için kullanılır, genellikle geliştirme aşamasında veri tabanını yenilemek için kullanılır.
+
+9. php artisan migrate:fresh
+   - Bu komut, veritabanındaki tüm tabloları siler ve migration'ları baştan uygular. Veritabanını temizler ve sıfırdan başlatır.
