@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('articles', function (Blueprint $table) {
+            //
+//            $table->renameColumn("status", "is_active");
+            \Illuminate\Support\Facades\DB::statement("Alter table articles change status is_active tinyint not null");
         });
     }
 
@@ -22,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::table('articles', function (Blueprint $table) {
+            //
+        });
     }
 };
