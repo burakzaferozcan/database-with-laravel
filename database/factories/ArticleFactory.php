@@ -4,12 +4,11 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Illuminate\Support\Testing\Fakes\Fake;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
  */
-class CategoryFactory extends Factory
+class ArticleFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,12 +17,14 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $title=fake()->name;
+        $title=fake()->title;
         return [
-            "name" => $title,
-            "status"=>fake()->boolean,
+            //
+            "title" => $title,
             "slug_name"=>Str::slug($title),
-
+            "is_active"=>fake()->boolean,
+            "category_id"=>random_int(1,10),
+            "body"=>fake()->paragraph
         ];
     }
 }
